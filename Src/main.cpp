@@ -8,19 +8,19 @@ int main()
               << std::endl;
 
     // create window and set up
-    sf::RenderWindow window(sf::VideoMode(1080, 720), "Pong");
+    sf::RenderWindow window(sf::VideoMode(1080, 720), "Space Invaders");
     window.setFramerateLimit(60);
 
     // initialise an instance of the game class
     Game game(window);
 
     // run the init function of the game class and check it all initialises ok
-    /*
+
     if (!game.init())
     {
       return 0;
     }
-    */
+
     // A Clock starts counting as soon as it's created
     sf::Clock clock;
 
@@ -41,11 +41,6 @@ int main()
             if (event.type == sf::Event::Closed)
             {
                 window.close();
-            }
-
-            if (event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased)
-            {
-                game.input(event);
             }
         }
 
