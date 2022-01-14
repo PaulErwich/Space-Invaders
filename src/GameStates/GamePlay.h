@@ -3,6 +3,7 @@
 //
 #include <SFML/Graphics.hpp>
 #include "GameStateBase.h"
+#include <iostream>
 
 #ifndef SPACE_INVADERS_GAMEPLAY_H
 #define SPACE_INVADERS_GAMEPLAY_H

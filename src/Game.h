@@ -5,6 +5,7 @@
 #include <iostream>
 #include "GameStates/GameStateBase.h"
 #include "GameStates/GameMenu.h"
+#include "GameStates/GamePlay.h"
 
 using std::cout;
 using std::endl;
@@ -18,6 +19,7 @@ class Game
 public:
     Game(sf::RenderWindow& game_window);
     ~Game();
+    void stateChange(STATE state_id);
     void input(sf::Event event);
     void update(float dt);
     void render();
@@ -26,6 +28,7 @@ private:
     sf::RenderWindow& window;
     GameStateBase *current_state;
     GameMenu *game_menu;
+    GamePlay *game_play;
 
 };
 

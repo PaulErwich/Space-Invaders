@@ -37,6 +37,11 @@ int main()
             {
                 window.close();
             }
+
+            if (event.type == sf::Event::KeyPressed)
+            {
+              game.input(event);
+            }
         }
 
         //'update' element of the game loop
