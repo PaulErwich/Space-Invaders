@@ -16,11 +16,6 @@ int main()
 
     // run the init function of the game class and check it all initialises ok
 
-    if (!game.init())
-    {
-      return 0;
-    }
-
     // A Clock starts counting as soon as it's created
     sf::Clock clock;
 

@@ -6,25 +6,13 @@
 
 Game::Game(sf::RenderWindow &game_window) : window(game_window)
 {
-
+  current_state = nullptr;
+  game_menu = new GameMenu(STATE::GAME_MENU, game_window);
 }
 
-Game::~Game() {
-
-}
-
-bool Game::init()
+Game::~Game()
 {
-    if (!font.loadFromFile("Data/Font/OpenSans-Bold.ttf"))
-    {
-        cout << "Failed to load font" << endl;
-        return false;
-    }
-
-    text.setFont(font);
-    text.setString("Space Invaders");
-    text.setFillColor(sf::Color::White);
-    return true;
+  delete game_menu;
 }
 
 void Game::input(sf::Event event)
@@ -38,6 +26,6 @@ void Game::update(float dt) {
 
 void Game::render()
 {
-    window.draw(text);
+    game_menu->render();
 }
 

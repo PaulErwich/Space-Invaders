@@ -3,6 +3,8 @@
 //
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "GameStates/GameStateBase.h"
+#include "GameStates/GameMenu.h"
 
 using std::cout;
 using std::endl;
@@ -16,15 +18,14 @@ class Game
 public:
     Game(sf::RenderWindow& game_window);
     ~Game();
-    bool init();
     void input(sf::Event event);
     void update(float dt);
     void render();
 
 private:
     sf::RenderWindow& window;
-    sf::Font font;
-    sf::Text text;
+    GameStateBase *current_state;
+    GameMenu *game_menu;
 
 };
 

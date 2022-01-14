@@ -9,7 +9,7 @@ if(WIN32)
 endif()
 
 find_package(SFML 2.5.1 COMPONENTS system window graphics network audio)
-set(SOURCE_FILES src/main.cpp src/Game.cpp src/Game.h)
+set(SOURCE_FILES src/main.cpp src/Game.cpp src/Game.h src/GameStates/GameStateBase.h src/GameStates/GameStateBase.cpp src/GameStates/GameMenu.cpp src/GameStates/GameMenu.h)
 add_executable(Space_Invaders ${SOURCE_FILES})
 
 target_link_libraries (Space_Invaders sfml-graphics sfml-window sfml-system sfml-network sfml-audio)
