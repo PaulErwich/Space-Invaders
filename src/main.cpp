@@ -1,6 +1,9 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
+#include "Projectile.h"
 #include <iostream>
+
+int Projectile::number_of_projectiles = 0;
 
 int main()
 {
@@ -8,7 +11,7 @@ int main()
               << std::endl;
 
     // create window and set up
-    sf::RenderWindow window(sf::VideoMode(1080, 720), "Space Invaders");
+    sf::RenderWindow window(sf::VideoMode(720, 1080), "Space Invaders");
     window.setFramerateLimit(60);
 
     // initialise an instance of the game class

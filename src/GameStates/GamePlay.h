@@ -2,8 +2,9 @@
 // Created by MLG Erwich on 14/01/2022.
 //
 #include <SFML/Graphics.hpp>
-#include "GameStateBase.h"
 #include <iostream>
+#include "GameStateBase.h"
+#include "../Player/Player.h"
 
 #ifndef SPACE_INVADERS_GAMEPLAY_H
 #define SPACE_INVADERS_GAMEPLAY_H
@@ -18,7 +19,7 @@ class GamePlay : public GameStateBase
   void render() override;
 
  private:
-
+  Player* player;
 };
 
 #endif // SPACE_INVADERS_GAMEPLAY_H
