@@ -7,6 +7,7 @@
 Projectile::Projectile(sf::RenderWindow& game_window, float x, float y) : window(game_window)
 {
   number_of_projectiles++;
+  projectile_number = number_of_projectiles;
   init(x, y);
 }
 
@@ -42,8 +43,8 @@ sf::Sprite Projectile::getSprite()
 
 void Projectile::update(float dt)
 {
-  //std::cout << "running?" << std::endl;
-  sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y - 100 * dt);
+  //std::cout << sprite.getPosition().y << " " << projectile_number << std::endl;
+  sprite.move(0, -100 * dt);
 }
 
 void Projectile::render()

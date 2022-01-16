@@ -5,6 +5,7 @@
 #include <iostream>
 #include "GameStateBase.h"
 #include "../Player/Player.h"
+#include "../Ships/ShipBasic.h"
 
 #ifndef SPACE_INVADERS_GAMEPLAY_H
 #define SPACE_INVADERS_GAMEPLAY_H
@@ -20,6 +21,7 @@ class GamePlay : public GameStateBase
 
  private:
   Player* player;
+  ShipBasic* ship;
 };
 
 #endif // SPACE_INVADERS_GAMEPLAY_H

@@ -24,6 +24,7 @@ class Projectile
   sf::Texture texture;
   sf::Sprite sprite;
   static int number_of_projectiles;
+  int projectile_number;
 };
 
 #endif // SPACE_INVADERS_PROJECTILE_H

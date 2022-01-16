@@ -9,7 +9,7 @@ if(WIN32)
 endif()
 
 find_package(SFML 2.5.1 COMPONENTS system window graphics network audio)
-set(SOURCE_FILES src/main.cpp src/Game.cpp src/Game.h src/GameStates/GameStateBase.h src/GameStates/GameStateBase.cpp src/GameStates/GameMenu.cpp src/GameStates/GameMenu.h src/GameStates/GamePlay.cpp src/GameStates/GamePlay.h src/Helper/Helper.cpp src/Helper/Helper.h src/Helper/TextOption.cpp src/Helper/TextOption.h src/Wave.cpp src/Wave.h src/Player/Player.cpp src/Player/Player.h src/Ships/ShipBasic.cpp src/Ships/ShipBasic.h src/Projectile.cpp src/Projectile.h)
+set(SOURCE_FILES src/main.cpp src/Game.cpp src/Game.h src/GameStates/GameStateBase.h src/GameStates/GameStateBase.cpp src/GameStates/GameMenu.cpp src/GameStates/GameMenu.h src/GameStates/GamePlay.cpp src/GameStates/GamePlay.h src/Helper/Helper.cpp src/Helper/Helper.h src/Helper/TextOption.cpp src/Helper/TextOption.h src/Wave.cpp src/Wave.h src/Player/Player.cpp src/Player/Player.h src/Ships/ShipBasic.cpp src/Ships/ShipBasic.h src/Projectile.cpp src/Projectile.h src/Queue.cpp src/Queue.h)
 add_executable(Space_Invaders ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
