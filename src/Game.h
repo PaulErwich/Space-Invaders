@@ -20,6 +20,7 @@ public:
     Game(sf::RenderWindow& game_window);
     ~Game();
     void stateChange(STATE state_id);
+    void keyReleased(sf::Event event);
     void input(sf::Event event);
     void update(float dt);
     void render();

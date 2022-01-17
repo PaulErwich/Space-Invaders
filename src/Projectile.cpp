@@ -26,7 +26,7 @@ bool Projectile::init(float x, float y)
   sprite.setTexture(texture);
   sprite.rotate(-90);
   sprite.setScale(0.02, 0.02);
-  sprite.setPosition(x, y);
+  sprite.setPosition(x - sprite.getGlobalBounds().width / 2, y + sprite.getGlobalBounds().height);
 
   return true;
 }

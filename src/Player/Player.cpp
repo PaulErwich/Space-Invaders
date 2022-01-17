@@ -7,11 +7,9 @@
 Player::Player(sf::RenderWindow& game_window) : window(game_window)
 {
   init();
+  movement = 0;
 
-  for (int i = 0; i < MAX_BULLETS; i++)
-  {
-    projectiles[i] = nullptr;
-  }
+
 }
 
 Player::~Player()
@@ -37,70 +35,73 @@ bool Player::init()
   return true;
 }
 
-void Player::bulletShipCollision(ShipBasic& collider)
-{
-  for (int i = 0; i < MAX_BULLETS; i++)
-  {
+sf::Sprite Player::getSprite() {return sprite;}
 
+void Player::keyReleased(sf::Event event)
+{
+  if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::D)
+  {
+    movement = 0;
   }
 }
 
 void Player::input(sf::Event event)
 {
-  // && fire_timer.getElapsedTime().asSeconds() >= 1
-  if (event.key.code == sf::Keyboard::Space)
+  //
+  if (event.key.code == sf::Keyboard::A)
   {
-    projectile.enqueue(new Projectile(window, sprite.getPosition().x, sprite.getPosition().y));
-    fire_timer.restart();
+    movement = -1;
   }
+  if (event.key.code == sf::Keyboard::D)
+  {
+    movement = 1;
+  }
+
+
+    //projectile.enqueue(new Projectile(window, sprite.getPosition().x, sprite.getPosition().y));
 }
 
-void Player::update(float dt, ShipBasic &collider)
+void Player::update(float dt)
 {
+  /*
   for (int i = 0; i < MAX_BULLETS; i++)
   {
     projectiles[i] = projectile.getElement(i);
-  }
+  }*/
 
-  if (!projectile.isEmpty())
+//  if (!projectile.isEmpty())
+  //{
+  sprite.move(SPEED * movement * dt, 0);
+
+  if (sprite.getPosition().x < 30)
   {
-
-    for (int i = 0; i < MAX_BULLETS; i++)
-    {
-      if (projectiles[i] != nullptr)
-      {
-        projectiles[i]->update(dt);
-
-        if (projectiles[i]->getSprite().getPosition().x < collider.sprite.getPosition().x + collider.sprite.getGlobalBounds().width &&
-            projectiles[i]->getSprite().getPosition().x + projectiles[i]->getSprite().getGlobalBounds().width > collider.sprite.getPosition().x &&
-            projectiles[i]->getSprite().getPosition().y < collider.sprite.getPosition().y + collider.sprite.getGlobalBounds().height &&
-            projectiles[i]->getSprite().getPosition().y + projectiles[i]->getSprite().getGlobalBounds().height > collider.sprite.getPosition().y)
-        {
-          std::cout << "WOOOOOOOOO" << std::endl;
-          projectile.dequeue();
-        }
-        if (projectiles[i]->getSprite().getPosition().y < 0)
-        {
-          projectile.dequeue();
-        }
-      }
-    }
+    movement = 0;
+    sprite.setPosition(30, sprite.getPosition().y);
   }
+  else if (sprite.getPosition().x + sprite.getGlobalBounds().width > window.getSize().x - 30)
+  {
+    movement = 0;
+    sprite.setPosition(window.getSize().x - 30 - sprite.getGlobalBounds().width, sprite.getPosition().y);
+  }
+
+
+  //}
 }
 
 void Player::render()
 {
   window.draw(sprite);
 
-  if (!projectile.isEmpty())
-  {
+  //if (!projectile.isEmpty())
+  //{
+  /*
     for (int i = 0; i < MAX_BULLETS; i++)
     {
       if (projectiles[i] != nullptr)
       {
         projectiles[i]->render();
       }
-    }
-  }
+    }*/
+  //}
 
 }

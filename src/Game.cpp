@@ -32,6 +32,14 @@ void Game::stateChange(STATE state_id)
   }
 }
 
+void Game::keyReleased(sf::Event event)
+{
+  if (current_state == game_play)
+  {
+    game_play->keyReleased(event);
+  }
+}
+
 void Game::input(sf::Event event)
 {
   stateChange(current_state->input(event));

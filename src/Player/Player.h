@@ -19,21 +19,22 @@ class Player
  public:
   Player(sf::RenderWindow& game_window);
   ~Player();
-  void bulletShipCollision(ShipBasic &collider);
+  sf::Sprite getSprite();
+  void keyReleased(sf::Event event);
   void input(sf::Event event);
-  void update(float dt, ShipBasic &collider);
+  void update(float dt);
   void render();
  private:
   bool init();
   sf::RenderWindow &window;
   sf::Texture texture;
   sf::Sprite sprite;
-  sf::Clock fire_timer;
+
   int movement;
   const int SPEED = 300;
   static const int MAX_BULLETS = 10;
-  Projectile *projectiles[MAX_BULLETS];
   Queue projectile;
+  Projectile *projectiles[MAX_BULLETS];
 };
 
 #endif // SPACE_INVADERS_PLAYER_H

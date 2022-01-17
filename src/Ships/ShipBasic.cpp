@@ -4,9 +4,9 @@
 
 #include "ShipBasic.h"
 
-ShipBasic::ShipBasic(sf::RenderWindow& game_window) : window(game_window)
+ShipBasic::ShipBasic(sf::RenderWindow& game_window, float x, float y) : window(game_window)
 {
-  init();
+  init(x, y);
   movement = 1;
 }
 
@@ -15,7 +15,7 @@ ShipBasic::~ShipBasic()
 
 }
 
-bool ShipBasic::init()
+bool ShipBasic::init(float x, float y)
 {
   if (!texture.loadFromFile("Data/Images/Alien_ship.png"))
   {
@@ -23,13 +23,14 @@ bool ShipBasic::init()
   }
 
   sprite.setTexture(texture);
-  sprite.scale(0.2, 0.2);
-  sprite.setPosition(window.getSize().x / 2 - sprite.getGlobalBounds().width, window.getSize().y / 4);
+  sprite.scale(0.1, 0.1);
+  sprite.setPosition(x * (window.getSize().x / 10) - sprite.getGlobalBounds().width / 2, y);
   return true;
 }
 
 void ShipBasic::update(float dt)
 {
+  /*
   sprite.move(movement * SPEED * dt, 0);
 
   if (sprite.getPosition().x < 0)
@@ -41,7 +42,7 @@ void ShipBasic::update(float dt)
   {
     //sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y - sprite.getGlobalBounds().height/2);
     movement = -1;
-  }
+  }*/
 }
 
 void ShipBasic::render()

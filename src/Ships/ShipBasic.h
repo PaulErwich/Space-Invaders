@@ -11,13 +11,13 @@
 class ShipBasic
 {
  public:
-  ShipBasic(sf::RenderWindow& game_window);
+  ShipBasic(sf::RenderWindow& game_window, float x, float y);
   ~ShipBasic();
   void update(float dt);
   void render();
   sf::Sprite sprite;
  private:
-  bool init();
+  bool init(float x, float y);
   sf::RenderWindow &window;
   sf::Texture texture;
 
